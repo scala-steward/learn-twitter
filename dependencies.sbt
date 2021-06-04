@@ -1,7 +1,12 @@
 ThisBuild / scalaVersion := "3.0.0"
 
 libraryDependencies ++=
+  "ch.qos.logback" % "logback-classic" % "1.2.3" ::
+    Nil
+
+libraryDependencies ++=
   ("com.twitter" %% "finatra-http-server" % "21.5.0" ::
+    "com.twitter" %% "inject-server" % "21.5.0" ::
     Nil)
     .map(_
       .cross(CrossVersion.for3Use2_13))
