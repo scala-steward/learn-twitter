@@ -1,0 +1,30 @@
+<configuration>
+  <shutdownHook class="ch.qos.logback.core.hook.DelayingShutdownHook"/>
+
+  <!-- JUL/JDK14 to Logback bridge. -->
+  <contextListener class="ch.qos.logback.classic.jul.LevelChangePropagator">
+    <resetJUL>true</resetJUL>
+  </contextListener>
+
+  <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+    <encoder>
+      <!-- Supplied by Finatra examples. -->
+      <!--<pattern>%date %.-3level %-25logger{0} %msg%n</pattern>-->
+      <pattern>%date{ISO8601} [%highlight(%-5level)] %logger{36} - %msg %xException{full,
+        akka.dispatch,
+        scala.concurrent,
+        scala.runtime.java8,
+        java.util.concurrent
+        } %n</pattern>
+    </encoder>
+  </appender>
+
+  <appender name="ASYNC_CONSOLE" class="ch.qos.logback.classic.AsyncAppender">
+    <appender-ref ref="CONSOLE"/>
+  </appender>
+
+  <root level="INFO">
+    <appender-ref ref="ASYNC_CONSOLE"/>
+  </root>
+
+</configuration>
