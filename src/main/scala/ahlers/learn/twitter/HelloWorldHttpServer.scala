@@ -1,17 +1,27 @@
 package ahlers.learn.twitter
 
-import com.twitter.inject.Logging
+import scala.reflect.runtime.universe._
+
+import com.twitter.finagle.http.{Request, Response}
 import com.twitter.finatra.http.HttpServer
+import com.twitter.finatra.http.filters.{CommonFilters, LoggingMDCFilter, TraceIdMDCFilter}
 import com.twitter.finatra.http.routing.HttpRouter
+import com.twitter.inject.Logging
 
 /**
  * @since June 04, 2021
  * @author <a href="mailto:michael@ahlers.consulting">Michael Ahlers</a>
  */
-object HelloWorldHttpServer
+class HelloWorldHttpServer
   extends HttpServer
-    with Logging :
+    with Logging:
 
   override def configureHttp(router: HttpRouter) =
-    /** @todo Determine why a [[Manifest]] can't be summoned with [[HttpRouter.add]]. */
-    router.add(classOf[HelloWorldController])
+    router
+      .filter[LoggingMDCFilter[Request, Response]]
+      .add[HelloWorldController]
+
+    ???
+
+object HelloWorldHttpServer
+  extends HelloWorldHttpServer

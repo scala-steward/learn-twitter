@@ -1,7 +1,9 @@
 package ahlers.learn.twitter
 
+import scala.reflect.runtime.universe._
+
+import com.twitter.finagle.http.Request
 import com.twitter.finatra.http.Controller
-import com.twitter.finatra.http.AbstractController
 
 import javax.inject.Inject
 
@@ -10,6 +12,4 @@ import javax.inject.Inject
  * @author <a href="mailto:michael@ahlers.consulting">Michael Ahlers</a>
  */
 class HelloWorldController()
-  extends AbstractController :
-
-  override def configureRoutes() = ()
+  extends Controller
