@@ -16,6 +16,9 @@ class MessageHttpServer
   extends HttpServer
     with Logging {
 
+  override protected def warmup() =
+    handle[MessageWarmupHandler]()
+
   override def configureHttp(router: HttpRouter) =
     router
       .filter[LoggingMDCFilter[Request, Response]]
