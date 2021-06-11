@@ -6,4 +6,4 @@ Compile / herokuAppName :=
 
 Compile / herokuSkipSubProjects := false
 Compile / herokuJdkVersion := "15"
-Compile / herokuProcessTypes += ("web", "target/universal/stage/bin/learn-twitter -Dhttp.port=$PORT")
+Compile / herokuProcessTypes += ("web", "target/universal/stage/bin/learn-twitter -- -http.port=:$PORT")
