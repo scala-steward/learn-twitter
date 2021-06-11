@@ -7,7 +7,7 @@ Compile / herokuAppName :=
 Compile / herokuSkipSubProjects := false
 Compile / herokuJdkVersion := "15"
 Compile / herokuProcessTypes += ("web", "target/universal/stage/bin/learn-twitter -- -http.port=:$PORT")
-Compile / herokuBuildpacks += " https://github.com/DataDog/heroku-buildpack-datadog.git"
+Compile / herokuBuildpacks += "https://github.com/DataDog/heroku-buildpack-datadog.git"
 
 /**
  * {{{
