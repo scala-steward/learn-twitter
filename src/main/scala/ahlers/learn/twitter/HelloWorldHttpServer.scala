@@ -22,6 +22,3 @@ class HelloWorldHttpServer
       .add[HelloWorldController]
 
 }
-
-object HelloWorldHttpServer
-  extends HelloWorldHttpServer

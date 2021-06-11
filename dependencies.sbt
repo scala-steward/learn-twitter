@@ -1,4 +1,5 @@
-ThisBuild / scalaVersion := "3.0.0"
+//ThisBuild / scalaVersion := "3.0.0"
+ThisBuild / scalaVersion := "2.13.6"
 
 libraryDependencies ++=
   "ch.qos.logback" % "logback-classic" % "1.2.3" ::
