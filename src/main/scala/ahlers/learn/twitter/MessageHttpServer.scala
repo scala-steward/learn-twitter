@@ -12,13 +12,14 @@ import com.twitter.inject.Logging
  * @since June 04, 2021
  * @author <a href="mailto:michael@ahlers.consulting">Michael Ahlers</a>
  */
-class HelloWorldHttpServer
+class MessageHttpServer
   extends HttpServer
     with Logging {
 
   override def configureHttp(router: HttpRouter) =
     router
       .filter[LoggingMDCFilter[Request, Response]]
-      .add[HelloWorldController]
+      .filter[TraceIdMDCFilter[Request, Response]]
+      .add[MessageController]
 
 }

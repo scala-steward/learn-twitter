@@ -11,5 +11,15 @@ import javax.inject.Inject
  * @since June 04, 2021
  * @author <a href="mailto:michael@ahlers.consulting">Michael Ahlers</a>
  */
-class HelloWorldController()
-  extends Controller
+class MessageController()
+  extends Controller {
+
+  get("/messages/:id") { (request: MessageGetRequest) =>
+    import request.id
+    info(request)
+    response
+      .ok(MessageGetResponse(id))
+      .location(id)
+  }
+
+}
