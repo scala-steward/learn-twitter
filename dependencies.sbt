@@ -8,6 +8,7 @@ libraryDependencies ++=
 libraryDependencies ++=
   ("com.twitter" %% "finatra-http-server" % "21.5.0" ::
     "com.twitter" %% "inject-server" % "21.5.0" ::
+    "com.twitter" %% "inject-utils" % "21.5.0" ::
     Nil)
     .map(_
       .cross(CrossVersion.for3Use2_13))
