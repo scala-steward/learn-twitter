@@ -2,9 +2,9 @@ package ahlers.learn.twitter
 
 import scala.reflect.runtime.universe._
 
-import com.twitter.finagle.http.{Request, Response}
+import com.twitter.finagle.http.{ Request, Response }
 import com.twitter.finatra.http.HttpServer
-import com.twitter.finatra.http.filters.{CommonFilters, LoggingMDCFilter, TraceIdMDCFilter}
+import com.twitter.finatra.http.filters.{ CommonFilters, LoggingMDCFilter, TraceIdMDCFilter }
 import com.twitter.finatra.http.routing.HttpRouter
 import com.twitter.inject.Logging
 
@@ -14,14 +14,14 @@ import com.twitter.inject.Logging
  */
 class HelloWorldHttpServer
   extends HttpServer
-    with Logging:
+    with Logging {
 
   override def configureHttp(router: HttpRouter) =
     router
       .filter[LoggingMDCFilter[Request, Response]]
       .add[HelloWorldController]
 
-    ???
+}
 
 object HelloWorldHttpServer
   extends HelloWorldHttpServer
