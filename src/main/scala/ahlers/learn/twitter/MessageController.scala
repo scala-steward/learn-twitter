@@ -16,7 +16,6 @@ class MessageController()
 
   get("/messages/:id") { (request: MessageGetRequest) =>
     import request.id
-    info(request)
     response
       .ok(MessageGetResponse(id))
       .location(id)
