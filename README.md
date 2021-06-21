@@ -1,6 +1,6 @@
 # Learn Twitter
 
-A personal sandbox project for getting familiar with Twitter's technology stack (_e.g._, [Finatra][github-finatra], [Finagle][github-finagle]).
+A personal sandbox project for getting familiar with Twitter's technology stack (_e.g._, [Finatra][github-finatra], [Finagle][github-finagle]). Also includes deployment to hosting services (''e.g.'', Heroku) and integration with monitoring services (''e.g.'', [DataDog](https://datadog.com)).
 
 ## Development
 
@@ -38,6 +38,13 @@ To choose a specific deployment stage:
 set Compile / herokuAppName := "ahlers-learn-twitter-preview"; deployHeroku
 ```
 
+## Monitoring
+
+### DataDog
+
+Uses [DataDog's library for Finagle][github-datadog-finagle]. (Work-in-progress; there's a version discrepancy.)
+
+[github-datadog-finagle]: https://github.com/DataDog/datadog-finagle
 [github-finatra]: https://github.com/twitter/finatra
 [github-finagle]: https://github.com/twitter/finagle
 [github-sbt-revolver]: https://github.com/spray/sbt-revolver
