@@ -1,3 +1,4 @@
+addSbtPlugin("au.com.onegeek" % "sbt-dotenv" % "2.1.204")
 addSbtPlugin("com.codecommit" % "sbt-github-actions" % "0.12.0")
 addSbtPlugin("com.eed3si9n" % "sbt-buildinfo" % "0.10.0")
 addSbtPlugin("com.heroku" % "sbt-heroku" % "2.1.4")
