@@ -44,8 +44,14 @@ set Compile / herokuAppName := "ahlers-learn-twitter-preview"; deployHeroku
 
 Uses [DataDog's library for Finagle][github-datadog-finagle]. (Work-in-progress; there's a version discrepancy.)
 
+## Acknowledgments
+
+- Special thanks to [Joe Kutner][github-jkutner] for contributions to [kissaten/finatra-hello-world][github-kissaten-finatra-hello-world], which demonstrates how to deploy Finatra applications to Heroku.
+
 [github-datadog-finagle]: https://github.com/DataDog/datadog-finagle
 [github-finatra]: https://github.com/twitter/finatra
 [github-finagle]: https://github.com/twitter/finagle
 [github-sbt-revolver]: https://github.com/spray/sbt-revolver
 [github-sbt-heroku]: https://github.com/heroku/sbt-heroku
+[github-jkutner]: https://github.com/jkutner
+[github-kissaten-finatra-hello-world]: https://github.com/kissaten/finatra-hello-world
