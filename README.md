@@ -7,7 +7,7 @@ A personal sandbox project for getting familiar with Twitter's technology stack 
 Includes [sbt-revolver][github-sbt-revolver] for rapid server restarts on code changes:
 
 ```sbt
-~reStart ahlers.learn.twitter.MessageHttpServerApp -- -http.port=8123
+~reStart ahlers.learn.twitter.MessageHttpServerApp
 ```
 
 Optionally, change the port number:
