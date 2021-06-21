@@ -18,7 +18,7 @@ Compile / herokuProcessTypes += ("web", "target/universal/stage/bin/learn-twitte
 /**
  * {{{
  * heroku config:add --app=ahlers-learn-twitter-preview DD_AGENT_MAJOR_VERSION=7
- * heroku config:add --app=ahlers-learn-twitter-preview DD_API_KEY=4e7b17ba3ce1233fa643d010b4914e9b
+ * heroku config:add --app=ahlers-learn-twitter-preview DD_API_KEY=???
  * heroku config:add --app=ahlers-learn-twitter-preview DD_SITE=datadoghq.com
  * }}}
  *
