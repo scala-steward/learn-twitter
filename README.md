@@ -22,6 +22,23 @@ Terminate the server process with:
 reStop
 ```
 
+## Deployment
+
+### Heroku
+
+Uses [sbt-heroku][github-sbt-heroku] for application configuration and deployment:
+
+```sbt
+deployHeroku
+```
+
+To choose a specific deployment stage:
+
+```sbt
+set Compile / herokuAppName := "ahlers-learn-twitter-preview"; deployHeroku
+```
+
 [github-finatra]: https://github.com/twitter/finatra
 [github-finagle]: https://github.com/twitter/finagle
 [github-sbt-revolver]: https://github.com/spray/sbt-revolver
+[github-sbt-heroku]: https://github.com/heroku/sbt-heroku
