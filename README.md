@@ -1,6 +1,6 @@
 # Learn Twitter
 
-A personal sandbox project for getting familiar with Twitter's technology stack (_e.g._, [Finatra][github-finatra], [Finagle][github-finagle]). Also includes deployment to hosting services (''e.g.'', Heroku) and integration with monitoring services (''e.g.'', [Datadog](https://datadog.com)).
+A personal sandbox project for getting familiar with Twitter's technology stack (_e.g._, [Finatra][github-finatra], [Finagle][github-finagle]). Also includes deployment to hosting services (_e.g._, Heroku) and integration with monitoring services (_e.g._, [Datadog](https://datadog.com)).
 
 ## Development
 
