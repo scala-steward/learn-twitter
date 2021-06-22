@@ -1,9 +1,11 @@
-//ThisBuild / scalaVersion := "3.0.0"
+resolvers += "JitPack".at("https://jitpack.io")
+
 ThisBuild / scalaVersion := "2.13.6"
 
 libraryDependencies ++=
   "ch.qos.logback" % "logback-classic" % "1.2.3" ::
-    "com.datadoghq" % "dd-finagle" % "0.2.3" ::
+    //"com.datadoghq" %% "dd-finagle" % "0.2.3" ::
+    "com.github.michaelahlers" %% "datadog-finagle" % "issue-1-SNAPSHOT" ::
     Nil
 
 libraryDependencies ++=

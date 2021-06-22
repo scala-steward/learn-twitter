@@ -42,13 +42,14 @@ set Compile / herokuAppName := "ahlers-learn-twitter-preview"; deployHeroku
 
 ### Datadog
 
-Uses [Datadog's library for Finagle][github-datadog-finagle]. (Work-in-progress; there's a version discrepancy.)
+Uses [Datadog's library for Finagle][github-datadog-datadog-finagle]. A work-in-progress, [I'm currently developing a fork which uses SBT to publish cross-built artifacts against Scala 2.12 and 2.13][github-micahelahlers-datadog-finagle].
 
 ## Acknowledgments
 
 - Special thanks to [Joe Kutner][github-jkutner] for contributions to [kissaten/finatra-hello-world][github-kissaten-finatra-hello-world], which demonstrates how to deploy Finatra applications to Heroku.
 
-[github-datadog-finagle]: https://github.com/DataDog/datadog-finagle
+[github-datadog-datadog-finagle]: https://github.com/DataDog/datadog-finagle
+[github-micahelahlers-datadog-finagle]: https://github.com/michaelahlers/datadog-finagle
 [github-finatra]: https://github.com/twitter/finatra
 [github-finagle]: https://github.com/twitter/finagle
 [github-sbt-revolver]: https://github.com/spray/sbt-revolver
