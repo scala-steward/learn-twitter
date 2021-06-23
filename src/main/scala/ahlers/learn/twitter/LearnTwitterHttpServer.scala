@@ -1,5 +1,6 @@
 package ahlers.learn.twitter
 
+import ahlers.learn.twitter.messages.MessageController
 import com.google.inject
 import com.twitter.finagle.Http
 
@@ -15,18 +16,18 @@ import com.twitter.inject.Logging
  * @since June 04, 2021
  * @author <a href="mailto:michael@ahlers.consulting">Michael Ahlers</a>
  */
-class MessageHttpServer
+class LearnTwitterHttpServer
   extends HttpServer
     with Logging {
 
   override protected def statsReceiverModule =
-    MessageStatsReceiverModule
+    LearnTwitterStatsReceiverModule
 
   override protected def start(): Unit =
     injector.instance[StatsReceiver]
 
   override protected def warmup() =
-    handle[MessageWarmupHandler]()
+    handle[LearnTwitterWarmupHandler]()
 
   override def configureHttp(router: HttpRouter) =
     router

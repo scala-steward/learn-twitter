@@ -1,4 +1,4 @@
-package ahlers.learn.twitter
+package ahlers.learn.twitter.messages
 
 /**
  * @since June 11, 2021

@@ -1,4 +1,4 @@
-package ahlers.learn.twitter
+package ahlers.learn.twitter.messages
 
 import com.twitter.finatra.http.annotations.RouteParam
 

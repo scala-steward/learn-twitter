@@ -10,7 +10,7 @@ import javax.inject.{ Inject, Singleton }
  * @author <a href="mailto:michael@ahlers.consulting">Michael Ahlers</a>
  */
 @Singleton
-class MessageWarmupHandler @Inject() (httpWarmup: HttpWarmup)
+class LearnTwitterWarmupHandler @Inject() (httpWarmup: HttpWarmup)
   extends Handler {
 
   import RequestBuilder.get

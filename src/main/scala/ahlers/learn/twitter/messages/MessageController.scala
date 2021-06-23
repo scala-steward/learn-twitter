@@ -1,11 +1,6 @@
-package ahlers.learn.twitter
+package ahlers.learn.twitter.messages
 
-import scala.reflect.runtime.universe._
-
-import com.twitter.finagle.http.Request
 import com.twitter.finatra.http.Controller
-
-import javax.inject.Inject
 
 /**
  * @since June 04, 2021
