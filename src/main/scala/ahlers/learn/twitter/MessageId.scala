@@ -1,6 +1,8 @@
 package ahlers.learn.twitter
 
-import com.twitter.inject.domain.WrappedValue
+import com.twitter.util.WrappedValue
+
+//import com.twitter.inject.domain.WrappedValue
 
 /**
  * @since June 11, 2021

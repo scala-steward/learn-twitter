@@ -9,21 +9,21 @@ libraryDependencies ++=
     Nil
 
 libraryDependencies ++=
-  ("com.twitter" %% "finatra-http-server" % "21.5.0" ::
-    "com.twitter" %% "inject-logback" % "21.5.0" ::
-    "com.twitter" %% "inject-server" % "21.5.0" ::
-    "com.twitter" %% "inject-utils" % "21.5.0" ::
-    "com.twitter" %% "twitter-server-logback-classic" % "21.5.0" ::
+  ("com.twitter" %% "finatra-http-server" % "21.6.0" ::
+    "com.twitter" %% "inject-logback" % "21.6.0" ::
+    "com.twitter" %% "inject-server" % "21.6.0" ::
+    "com.twitter" %% "inject-utils" % "21.6.0" ::
+    "com.twitter" %% "twitter-server-logback-classic" % "21.6.0" ::
     Nil)
     .map(_
       .cross(CrossVersion.for3Use2_13))
 
 libraryDependencies ++=
-  (("com.twitter" %% "finatra-http-server" % "21.5.0" % Test).classifier("tests") ::
-    ("com.twitter" %% "inject-server" % "21.5.0" % Test).classifier("tests") ::
-    ("com.twitter" %% "inject-app" % "21.5.0" % Test).classifier("tests") ::
-    ("com.twitter" %% "inject-core" % "21.5.0" % Test).classifier("tests") ::
-    ("com.twitter" %% "inject-modules" % "21.5.0" % Test).classifier("tests") ::
+  (("com.twitter" %% "finatra-http-server" % "21.6.0" % Test).classifier("tests") ::
+    ("com.twitter" %% "inject-server" % "21.6.0" % Test).classifier("tests") ::
+    ("com.twitter" %% "inject-app" % "21.6.0" % Test).classifier("tests") ::
+    ("com.twitter" %% "inject-core" % "21.6.0" % Test).classifier("tests") ::
+    ("com.twitter" %% "inject-modules" % "21.6.0" % Test).classifier("tests") ::
     Nil)
     .map(_
       .cross(CrossVersion.for3Use2_13))
