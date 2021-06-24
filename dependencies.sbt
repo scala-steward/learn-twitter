@@ -34,7 +34,7 @@ libraryDependencies ++=
     "com.github.alexarchambault" %% "scalacheck-shapeless_1.14" % "1.2.5" % Test ::
     "org.scalacheck" %% "scalacheck" % "1.15.3" % Test ::
     "org.scalamock" %% "scalamock" % "5.1.0" % Test ::
-    "org.scalatest" %% "scalatest" % "3.2.5" % Test ::
+    "org.scalatest" %% "scalatest" % "3.2.9" % Test ::
     Nil)
     .map(_
       .cross(CrossVersion.for3Use2_13))
