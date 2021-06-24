@@ -1,11 +1,12 @@
-resolvers += "JitPack".at("https://jitpack.io")
-
 ThisBuild / scalaVersion := "2.13.6"
+
+//resolvers += Resolver.githubPackages("michaelahlers", "datadog-finagle")
+resolvers += "michaelahlers/datadog-finagle".at("https://maven.pkg.github.com/michaelahlers/datadog-finagle")
 
 libraryDependencies ++=
   "ch.qos.logback" % "logback-classic" % "1.2.3" ::
     //"com.datadoghq" %% "dd-finagle" % "0.2.3" ::
-    "com.github.michaelahlers" %% "datadog-finagle" % "0.2.4" ::
+    "com.datadoghq" %% "dd-finagle_21.6" % "0.2.9-SNAPSHOT" ::
     Nil
 
 libraryDependencies ++=
