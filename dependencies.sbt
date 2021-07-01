@@ -1,7 +1,8 @@
 ThisBuild / scalaVersion := "2.13.6"
 
 //resolvers += Resolver.githubPackages("michaelahlers", "datadog-finagle")
-resolvers += "michaelahlers/datadog-finagle".at("https://maven.pkg.github.com/michaelahlers/datadog-finagle")
+//resolvers += "michaelahlers/datadog-finagle".at("https://maven.pkg.github.com/michaelahlers/datadog-finagle")
+resolvers += Resolver.url("Ahlers Consulting Artifacts (public)", url("https://ahlers-consulting-artifacts-public.s3.amazonaws.com/"))(Resolver.ivyStylePatterns)
 
 libraryDependencies ++=
   "ch.qos.logback" % "logback-classic" % "1.2.3" ::
