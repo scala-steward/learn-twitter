@@ -11,6 +11,7 @@ import com.twitter.finatra.http.HttpServer
 import com.twitter.finatra.http.filters.{ CommonFilters, LoggingMDCFilter, TraceIdMDCFilter }
 import com.twitter.finatra.http.routing.HttpRouter
 import com.twitter.inject.Logging
+import com.twitter.inject.modules.StatsReceiverModule
 
 /**
  * @since June 04, 2021
@@ -20,8 +21,8 @@ class LearnTwitterHttpServer
   extends HttpServer
     with Logging {
 
-  override protected def statsReceiverModule =
-    LearnTwitterStatsReceiverModule
+  //override protected def statsReceiverModule =
+  //  StatsReceiverModule
 
   override protected def start(): Unit =
     injector.instance[StatsReceiver]

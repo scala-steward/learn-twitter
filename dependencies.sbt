@@ -11,8 +11,13 @@ libraryDependencies ++=
     "com.datadoghq" %% "dd-finagle_21.6" % "0.2.9-SNAPSHOT" ::
     Nil
 
+/**
+ * ”Finagle server without metrics” is fixed by depending on `finagle-stats`.
+ * @see [[https://github.com/seratch/finagle-playground/blob/5c004bdb17a346936549ec00d731db5b35b4cddc/hello-twitter-server/src/main/scala/example/BasicServer.scala#L9-L16]]
+ */
 libraryDependencies ++=
-  ("com.twitter" %% "finatra-http-server" % "21.6.0" ::
+  ("com.twitter" %% "finagle-stats" % "21.6.0" ::
+    "com.twitter" %% "finatra-http-server" % "21.6.0" ::
     "com.twitter" %% "inject-logback" % "21.6.0" ::
     "com.twitter" %% "inject-server" % "21.6.0" ::
     "com.twitter" %% "inject-slf4j" % "21.6.0" ::
