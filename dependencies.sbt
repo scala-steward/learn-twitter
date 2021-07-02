@@ -23,6 +23,7 @@ libraryDependencies ++=
     "com.twitter" %% "inject-slf4j" % "21.6.0" ::
     "com.twitter" %% "inject-utils" % "21.6.0" ::
     "com.twitter" %% "twitter-server-logback-classic" % "21.6.0" ::
+    "com.twitter" %% "util-validator" % "21.6.0" ::
     Nil)
     .map(_
       .cross(CrossVersion.for3Use2_13))
