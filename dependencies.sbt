@@ -15,6 +15,7 @@ libraryDependencies ++=
   ("com.twitter" %% "finatra-http-server" % "21.6.0" ::
     "com.twitter" %% "inject-logback" % "21.6.0" ::
     "com.twitter" %% "inject-server" % "21.6.0" ::
+    "com.twitter" %% "inject-slf4j" % "21.6.0" ::
     "com.twitter" %% "inject-utils" % "21.6.0" ::
     "com.twitter" %% "twitter-server-logback-classic" % "21.6.0" ::
     Nil)
