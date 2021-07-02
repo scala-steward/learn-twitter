@@ -16,4 +16,12 @@ class MessageController()
       .location(id)
   }
 
+  post("/messages") { (request: MessagePostRequest) =>
+    import request.body
+    val id = MessageId("random")
+    response
+      .ok(MessagePostResponse(id, body))
+      .location(id)
+  }
+
 }
