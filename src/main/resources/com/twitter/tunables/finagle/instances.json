@@ -1,0 +1,9 @@
+{
+  "tunables": [
+    {
+      "id": "com.twitter.finagle.stats.verbose",
+      "value": "logback/*",
+      "type": "java.lang.String"
+    }
+  ]
+}
