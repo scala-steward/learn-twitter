@@ -8,7 +8,7 @@ import scala.reflect.runtime.universe._
 import com.twitter.finagle.http.{ Request, Response }
 import com.twitter.finagle.stats.{ NullStatsReceiver, StatsReceiver }
 import com.twitter.finatra.http.HttpServer
-import com.twitter.finatra.http.filters.{ CommonFilters, LoggingMDCFilter, TraceIdMDCFilter }
+import com.twitter.finatra.http.filters.{ CommonFilters, ExceptionMappingFilter, LoggingMDCFilter, TraceIdMDCFilter }
 import com.twitter.finatra.http.routing.HttpRouter
 import com.twitter.inject.Logging
 import com.twitter.inject.modules.StatsReceiverModule
@@ -34,6 +34,7 @@ class LearnTwitterHttpServer
     router
       .filter[LoggingMDCFilter[Request, Response]]
       .filter[TraceIdMDCFilter[Request, Response]]
+      .filter[ExceptionMappingFilter[Request]]
       .add[MessageController]
 
 }
