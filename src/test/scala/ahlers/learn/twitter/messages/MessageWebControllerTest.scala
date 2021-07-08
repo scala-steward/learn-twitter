@@ -11,6 +11,8 @@ import com.softwaremill.diffx.generic.auto._
 import com.softwaremill.diffx.scalatest.DiffMatcher._
 import com.twitter.util.Future
 import org.scalamock.scalatest.MockFactory
+import io.circe.Json
+import io.circe.syntax._
 
 /**
  * @since July 07, 2021
@@ -81,11 +83,9 @@ class MessageWebControllerTest
 
       val path = "/messages"
       val postBody =
-        """
-          |{
-          |  "body": "%s"
-          |}
-          |""".stripMargin
+        Json.obj(
+          "body" -> Json.fromString(webPostRequest.body.toText))
+          .toString()
 
       val webPostResponse =
         MessageWebPostResponse(
