@@ -39,7 +39,7 @@ libraryDependencies ++=
       .cross(CrossVersion.for3Use2_13))
 
 libraryDependencies ++=
-  ("com.softwaremill.diffx" %% "diffx-scalatest" % "0.5.2" % Test ::
+  ("com.softwaremill.diffx" %% "diffx-scalatest" % "0.5.3" % Test ::
     "com.github.alexarchambault" %% "scalacheck-shapeless_1.15" % "1.3.0" % Test ::
     "org.scalacheck" %% "scalacheck" % "1.15.4" % Test ::
     "org.scalamock" %% "scalamock" % "5.1.0" % Test ::
