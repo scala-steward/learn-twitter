@@ -9,6 +9,7 @@ libraryDependencies ++=
     "net.logstash.logback" % "logstash-logback-encoder" % "4.11" ::
     //"com.datadoghq" %% "dd-finagle" % "0.2.3" ::
     "com.datadoghq" %% "dd-finagle_21.6" % "0.2.9-SNAPSHOT" ::
+    "io.scalaland" %% "chimney" % "0.6.1" ::
     Nil
 
 /**
