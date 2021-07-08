@@ -49,3 +49,7 @@ libraryDependencies ++=
     Nil)
     .map(_
       .cross(CrossVersion.for3Use2_13))
+
+dependencyOverrides ++=
+  "com.fasterxml.jackson.core" % "jackson-databind" % "2.11.4" ::
+    Nil
