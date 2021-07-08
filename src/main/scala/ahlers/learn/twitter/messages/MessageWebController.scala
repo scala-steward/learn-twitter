@@ -3,11 +3,13 @@ package ahlers.learn.twitter.messages
 import com.twitter.finatra.http.Controller
 import io.scalaland.chimney.dsl._
 
+import javax.inject.Inject
+
 /**
  * @since June 04, 2021
  * @author <a href="mailto:michael@ahlers.consulting">Michael Ahlers</a>
  */
-class MessageWebController(/*messageService: MessageService*/ )
+class MessageWebController @Inject() (messageService: MessageService)
   extends Controller {
 
   get("/messages/:id") { (request: MessageWebGetRequest) =>
@@ -17,7 +19,7 @@ class MessageWebController(/*messageService: MessageService*/ )
       .location(id)
   }
 
-  /*post("/messages") { (request: MessageWebPostRequest) =>
+  post("/messages") { (request: MessageWebPostRequest) =>
     messageService
       .createMessage(request
         .into[MessageCreateRequest]
@@ -25,6 +27,6 @@ class MessageWebController(/*messageService: MessageService*/ )
       .map(_
         .into[MessageWebPostResponse]
         .transform)
-  }*/
+  }
 
 }

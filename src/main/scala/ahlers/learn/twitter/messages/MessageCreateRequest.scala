@@ -1,9 +1,8 @@
 package ahlers.learn.twitter.messages
 
 /**
- * @since June 11, 2021
+ * @since July 07, 2021
  * @author <a href="mailto:michael@ahlers.consulting">Michael Ahlers</a>
  */
-case class MessagePostResponse(
-  id: MessageId,
+case class MessageCreateRequest(
   body: MessageBody)

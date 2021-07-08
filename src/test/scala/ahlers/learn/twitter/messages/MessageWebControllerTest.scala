@@ -9,6 +9,8 @@ import org.scalatestplus.scalacheck.ScalaCheckPropertyChecks
 import org.scalacheck.{ Arbitrary, Gen, ScalacheckShapeless }
 import com.softwaremill.diffx.generic.auto._
 import com.softwaremill.diffx.scalatest.DiffMatcher._
+import com.twitter.util.Future
+import org.scalamock.scalatest.MockFactory
 
 /**
  * @since July 07, 2021
@@ -20,37 +22,82 @@ object MessageWebControllerTest {
     Arbitrary(Gen.identifier
       .map(MessageId(_)))
 
+  implicit val arbMessageBody: Arbitrary[MessageBody] =
+    Arbitrary(Gen.nonEmptyListOf(Gen.identifier)
+      .map(_
+        .mkString(" ")
+        .take(10)
+        .trim())
+      .map(MessageBody(_)))
+
 }
 
 class MessageWebControllerTest
   extends AnyWordSpec
     with TestMixin
-    with FeatureTestMixin {
+    with FeatureTestMixin
+    with MockFactory {
 
   import MessageWebControllerTest._
 
+  val messageService: MessageService = mock[MessageService]
+
+  val learnTwitterServer = new LearnTwitterHttpServer
+
   override val server =
     new EmbeddedHttpServer(
-      new LearnTwitterHttpServer,
+      learnTwitterServer,
       disableTestLogging = true)
+      .bind[MessageService].toInstance(messageService)
 
   "GET /messages/:id" in {
     import ScalaCheckPropertyChecks._
     import ScalacheckShapeless._
 
-    forAll { (request: MessageWebGetRequest) =>
-      val path = "/messages/%s".format(request.id)
+    forAll { (webGetRequest: MessageWebGetRequest) =>
+      val path = "/messages/%s".format(webGetRequest.id)
 
-      val response =
+      val webGetResponse =
         MessageWebGetResponse(
-          request.id)
+          webGetRequest.id)
 
       server
         .httpGetJson[MessageWebGetResponse](
           path = path)
-        .should(matchTo(response))
+        .should(matchTo(webGetResponse))
     }
+  }
 
+  "POST /messages" in {
+    import ScalaCheckPropertyChecks._
+    import ScalacheckShapeless._
+
+    forAll { (webPostRequest: MessageWebPostRequest) =>
+      (messageService.createMessage _)
+        .expects(*)
+        .returns(Future(MessageCreateResponse(
+          MessageId("random"),
+          webPostRequest.body)))
+
+      val path = "/messages"
+      val postBody =
+        """
+          |{
+          |  "body": "%s"
+          |}
+          |""".stripMargin
+
+      val webPostResponse =
+        MessageWebPostResponse(
+          MessageId("random"),
+          webPostRequest.body)
+
+      server
+        .httpPostJson[MessageWebPostResponse](
+          path = path,
+          postBody = postBody)
+        .should(matchTo(webPostResponse))
+    }
   }
 
 }
