@@ -9,7 +9,7 @@ import javax.inject.Inject
  * @since June 04, 2021
  * @author <a href="mailto:michael@ahlers.consulting">Michael Ahlers</a>
  */
-class MessageWebController @Inject() (messageService: MessageService)
+class MessageWebService @Inject() (messageService: MessageService)
   extends Controller {
 
   get("/messages/:id") { (request: MessageWebGetRequest) =>

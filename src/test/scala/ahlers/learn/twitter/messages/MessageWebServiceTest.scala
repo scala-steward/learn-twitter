@@ -18,7 +18,7 @@ import io.circe.syntax._
  * @since July 07, 2021
  * @author <a href="mailto:michael@ahlers.consulting">Michael Ahlers</a>
  */
-object MessageWebControllerTest {
+object MessageWebServiceTest {
 
   implicit val arbMessageId: Arbitrary[MessageId] =
     Arbitrary(Gen.identifier
@@ -34,13 +34,13 @@ object MessageWebControllerTest {
 
 }
 
-class MessageWebControllerTest
+class MessageWebServiceTest
   extends AnyWordSpec
     with TestMixin
     with FeatureTestMixin
     with MockFactory {
 
-  import MessageWebControllerTest._
+  import MessageWebServiceTest._
 
   val messageService: MessageService = mock[MessageService]
 

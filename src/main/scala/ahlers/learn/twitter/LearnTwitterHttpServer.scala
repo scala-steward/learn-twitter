@@ -1,6 +1,6 @@
 package ahlers.learn.twitter
 
-import ahlers.learn.twitter.messages.MessageWebController
+import ahlers.learn.twitter.messages.MessageWebService
 import com.google.inject
 import com.twitter.finagle.Http
 
@@ -35,6 +35,6 @@ class LearnTwitterHttpServer
       .filter[LoggingMDCFilter[Request, Response]]
       .filter[TraceIdMDCFilter[Request, Response]]
       .filter[ExceptionMappingFilter[Request]]
-      .add[MessageWebController]
+      .add[MessageWebService]
 
 }
