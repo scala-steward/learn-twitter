@@ -1,17 +1,13 @@
 package ahlers.learn.twitter
 
-import ahlers.learn.twitter.messages.MessageWebService
-import com.google.inject
-import com.twitter.finagle.Http
-
-import scala.reflect.runtime.universe._
+import ahlers.learn.twitter.messages.{ MessageServiceInMemoryModule, MessageWebService }
+import com.google.inject.Module
 import com.twitter.finagle.http.{ Request, Response }
-import com.twitter.finagle.stats.{ NullStatsReceiver, StatsReceiver }
+import com.twitter.finagle.stats.StatsReceiver
 import com.twitter.finatra.http.HttpServer
-import com.twitter.finatra.http.filters.{ CommonFilters, ExceptionMappingFilter, LoggingMDCFilter, TraceIdMDCFilter }
+import com.twitter.finatra.http.filters.{ ExceptionMappingFilter, LoggingMDCFilter, TraceIdMDCFilter }
 import com.twitter.finatra.http.routing.HttpRouter
 import com.twitter.inject.Logging
-import com.twitter.inject.modules.StatsReceiverModule
 
 /**
  * @since June 04, 2021
@@ -24,7 +20,11 @@ class LearnTwitterHttpServer
   //override protected def statsReceiverModule =
   //  StatsReceiverModule
 
-  override protected def start(): Unit =
+  override val modules: Seq[Module] =
+    super.modules :+
+      MessageServiceInMemoryModule
+
+  override protected def start() =
     injector.instance[StatsReceiver]
 
   override protected def warmup() =
