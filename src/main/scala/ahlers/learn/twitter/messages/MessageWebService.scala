@@ -20,7 +20,7 @@ class MessageWebService @Inject() (messageService: MessageService)
         .transform)
       .handle {
         case MessageNotFoundException(id) =>
-          response
+          throw response
             .notFound(s"""Couldn't find message with id. "$id".""")
             .toException
       }
