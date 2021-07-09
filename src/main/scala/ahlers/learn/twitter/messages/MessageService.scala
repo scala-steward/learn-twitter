@@ -8,6 +8,8 @@ import com.twitter.util.Future
  */
 trait MessageService {
 
+  def getMessage(request: MessageGetRequest): Future[MessageGetResponse]
+
   def createMessage(request: MessageCreateRequest): Future[MessageCreateResponse]
 
 }
