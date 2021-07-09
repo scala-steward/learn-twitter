@@ -12,21 +12,32 @@ import javax.inject.Inject
 class MessageWebService @Inject() (messageService: MessageService)
   extends Controller {
 
-  get("/messages/:id") { (request: MessageWebGetRequest) =>
-    import request.id
-    response
-      .ok(MessageWebGetResponse(id))
-      .location(id)
+  get("/messages/:id") { (webGetRequest: MessageWebGetRequest) =>
+    messageService
+      .getMessage(MessageGetRequest(webGetRequest.id))
+      .map(_
+        .into[MessageWebGetResponse]
+        .transform)
+      .handle {
+        case MessageNotFoundException(id) =>
+          response
+            .notFound(s"""Couldn't find message with id. "$id".""")
+            .toException
+      }
   }
 
-  post("/messages") { (request: MessageWebPostRequest) =>
+  post("/messages") { (webPostRequest: MessageWebPostRequest) =>
     messageService
-      .createMessage(request
+      .createMessage(webPostRequest
         .into[MessageCreateRequest]
         .transform)
       .map(_
         .into[MessageWebPostResponse]
         .transform)
+      .map(webPostResponse =>
+        response
+          .created(webPostResponse)
+          .location(s"/messages/${webPostResponse.id}"))
   }
 
 }

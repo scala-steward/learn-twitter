@@ -5,4 +5,5 @@ package ahlers.learn.twitter.messages
  * @author <a href="mailto:michael@ahlers.consulting">Michael Ahlers</a>
  */
 case class MessageWebGetResponse(
-  id: MessageId)
+  id: MessageId,
+  body: MessageBody)
