@@ -21,7 +21,7 @@ import io.circe.syntax._
 object MessageWebServiceTest {
 
   implicit val arbMessageId: Arbitrary[MessageId] =
-    Arbitrary(Gen.identifier
+    Arbitrary(Gen.posNum[Long]
       .map(MessageId(_)))
 
   implicit val arbMessageBody: Arbitrary[MessageBody] =
@@ -56,12 +56,13 @@ class MessageWebServiceTest
     import ScalaCheckPropertyChecks._
     import ScalacheckShapeless._
 
-    forAll { (webGetRequest: MessageWebGetRequest) =>
+    forAll { (webGetRequest: MessageWebGetRequest, body: MessageBody) =>
       val path = "/messages/%s".format(webGetRequest.id)
 
       val webGetResponse =
         MessageWebGetResponse(
-          webGetRequest.id)
+          webGetRequest.id,
+          body)
 
       server
         .httpGetJson[MessageWebGetResponse](
@@ -74,11 +75,11 @@ class MessageWebServiceTest
     import ScalaCheckPropertyChecks._
     import ScalacheckShapeless._
 
-    forAll { (webPostRequest: MessageWebPostRequest) =>
+    forAll { (webPostRequest: MessageWebPostRequest, id: MessageId) =>
       (messageService.createMessage _)
         .expects(*)
         .returns(Future(MessageCreateResponse(
-          MessageId("random"),
+          id,
           webPostRequest.body)))
 
       val path = "/messages"
@@ -89,7 +90,7 @@ class MessageWebServiceTest
 
       val webPostResponse =
         MessageWebPostResponse(
-          MessageId("random"),
+          id,
           webPostRequest.body)
 
       server
